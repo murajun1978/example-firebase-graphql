@@ -3,6 +3,8 @@ import { resolvers } from "./resolvers";
 import { firestore } from "./utils";
 
 const typeDefs = `
+  scalar DateTime
+
   type Query {
     hello(name: String): String!
     messages: [Message!]!
@@ -15,6 +17,7 @@ const typeDefs = `
   type Message {
     id: String!
     body: String!
+    createdAt: DateTime!
   }
 
   input AddMessageInput {

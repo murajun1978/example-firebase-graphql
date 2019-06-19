@@ -3,7 +3,7 @@ export const Mutation = {
     const { body } = args.input;
     return await firestore
       .collection("messages")
-      .add({ body })
+      .add({ body, createdAt: Date.now() })
       .then(async ref => {
         const snapShot = await firestore
           .collection("messages")
